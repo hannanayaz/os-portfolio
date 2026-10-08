@@ -1,0 +1,17 @@
+{
+  "name": "os-portfolio",
+  "version": "1.0.0",
+  "description": "A sleek, high-fidelity single-page portfolio styled like a modern desktop operating system (inspired by macOS Sonoma and Windows 11 Fluent Design). Built with pure HTML5, vanilla CSS3 glassmorphism, and vanilla JavaScript (no heavyweight runtime frameworks needed).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "serve": "^14.2.6"
+  }
+}
