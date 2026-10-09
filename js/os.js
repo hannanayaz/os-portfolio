@@ -470,7 +470,7 @@ function initClock() {
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12 || 12;
 
-    clockEl.textContent = `${hours}:${mins}:${secs} ${ampm} // AME-16`;
+    clockEl.textContent = `${dayName} ${monthName} ${dateNum}  ${hours}:${mins}:${secs} ${ampm}`;
 
     // Update lock screen clock if present
     const lockClock = document.getElementById('lock-screen-clock');
