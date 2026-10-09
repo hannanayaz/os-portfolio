@@ -1,7 +1,8 @@
 /**
- * HannanOS - Operating System Engine & Window Manager
- * Manages windows, dock, desktop icons, top menu bar, control center,
- * spotlight search, lock screen, and wallpaper manager.
+ * AmeOS 16 - Operating System Engine & Window Manager
+ * Manages floating liquid-glass windows, dock magnification physics,
+ * desktop interactions, top menu bar, control center, spotlight search,
+ * and wallpaper system.
  */
 
 class WindowManager {
@@ -100,11 +101,11 @@ class WindowManager {
       let newLeft = initialLeft + deltaX;
       let newTop = initialTop + deltaY;
 
-      // Bounds constraint (keep titlebar on desktop)
+      // Keep within viewport bounds
       const maxLeft = window.innerWidth - 80;
       const maxTop = window.innerHeight - 100;
       newLeft = Math.max(-rectWidth(el) + 100, Math.min(newLeft, maxLeft));
-      newTop = Math.max(32, Math.min(newTop, maxTop));
+      newTop = Math.max(34, Math.min(newTop, maxTop));
 
       el.style.left = `${newLeft}px`;
       el.style.top = `${newTop}px`;
@@ -189,7 +190,7 @@ class WindowManager {
         }
         if (dir.includes('n')) {
           const newH = startHeight - dy;
-          if (newH > minHeight && startTop + dy >= 32) {
+          if (newH > minHeight && startTop + dy >= 34) {
             el.style.height = `${newH}px`;
             el.style.top = `${startTop + dy}px`;
           }
@@ -239,9 +240,9 @@ class WindowManager {
       win.el.classList.add('open');
       win.el.classList.remove('minimized');
 
-      // Cascade positioning
-      const baseTop = 60 + (this.cascadeOffset % 5) * 28;
-      const baseLeft = 90 + (this.cascadeOffset % 5) * 28;
+      // Cascading layout
+      const baseTop = 65 + (this.cascadeOffset % 5) * 30;
+      const baseLeft = 95 + (this.cascadeOffset % 5) * 30;
       this.cascadeOffset++;
 
       if (!win.el.style.top || win.el.style.top === '0px') {
@@ -271,7 +272,7 @@ class WindowManager {
 
     this.updateDockState(id, false);
 
-    // Set active window to top remaining window
+    // Focus topmost remaining window
     let nextTopWin = null;
     let maxZ = -1;
     this.windows.forEach(w => {
@@ -350,15 +351,15 @@ class SettingsManager {
   }
 
   init() {
-    const savedWall = localStorage.getItem('hannanos_wallpaper') || 'sonoma';
-    const savedTheme = localStorage.getItem('hannanos_theme') || 'dark';
+    const savedWall = localStorage.getItem('ameos_wallpaper') || 'ameos-liquid';
+    const savedTheme = localStorage.getItem('ameos_theme') || 'dark';
 
     if (savedWall === 'custom') {
-      const customUrl = localStorage.getItem('hannanos_custom_wallpaper_url');
+      const customUrl = localStorage.getItem('ameos_custom_wallpaper_url');
       if (customUrl) {
         this.setCustomWallpaper(customUrl, false);
       } else {
-        this.switchWallpaper('sonoma', false);
+        this.switchWallpaper('ameos-liquid', false);
       }
     } else {
       this.switchWallpaper(savedWall, false);
@@ -374,15 +375,15 @@ class SettingsManager {
     const preset = portfolioData.wallpapers.find(w => w.id === wallId);
     if (preset) {
       targetStyle = preset.src;
-      localStorage.setItem('hannanos_wallpaper', wallId);
+      localStorage.setItem('ameos_wallpaper', wallId);
     } else {
       const num = parseInt(wallId, 10);
       if (!isNaN(num) && portfolioData.wallpapers[num - 1]) {
         targetStyle = portfolioData.wallpapers[num - 1].src;
-        localStorage.setItem('hannanos_wallpaper', portfolioData.wallpapers[num - 1].id);
+        localStorage.setItem('ameos_wallpaper', portfolioData.wallpapers[num - 1].id);
       } else if (portfolioData.wallpapers.length > 0) {
         targetStyle = portfolioData.wallpapers[0].src;
-        localStorage.setItem('hannanos_wallpaper', portfolioData.wallpapers[0].id);
+        localStorage.setItem('ameos_wallpaper', portfolioData.wallpapers[0].id);
       }
     }
 
@@ -391,7 +392,7 @@ class SettingsManager {
       bgElem.style.backgroundSize = 'cover';
       bgElem.style.backgroundPosition = 'center';
       if (notify && window.showToast) {
-        window.showToast("Wallpaper Changed", "Desktop background updated successfully.");
+        window.showToast("Wallpaper Applied", "Desktop theme updated successfully.");
       }
     }
   }
@@ -401,10 +402,10 @@ class SettingsManager {
     if (!bgElem) return;
 
     bgElem.style.background = `url("${url}") center/cover no-repeat`;
-    localStorage.setItem('hannanos_wallpaper', 'custom');
-    localStorage.setItem('hannanos_custom_wallpaper_url', url);
+    localStorage.setItem('ameos_wallpaper', 'custom');
+    localStorage.setItem('ameos_custom_wallpaper_url', url);
     if (notify && window.showToast) {
-      window.showToast("Custom Wallpaper Applied", "Loaded custom background image.");
+      window.showToast("Custom Wallpaper Applied", "Loaded custom background layer.");
     }
   }
 
@@ -415,9 +416,9 @@ class SettingsManager {
     } else if (theme === 'cyber') {
       document.body.classList.add('theme-cyber');
     }
-    localStorage.setItem('hannanos_theme', theme);
+    localStorage.setItem('ameos_theme', theme);
     if (notify && window.showToast) {
-      window.showToast("Theme Changed", `Interface set to ${theme.toUpperCase()} mode.`);
+      window.showToast("AmeOS 16 Aesthetic", `Interface set to ${theme.toUpperCase()} mode.`);
     }
   }
 }
@@ -444,12 +445,12 @@ function showToast(title, message, iconSvg = '') {
 
   setTimeout(() => {
     toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 400);
-  }, 4200);
+    setTimeout(() => toast.remove(), 420);
+  }, 4400);
 }
 window.showToast = showToast;
 
-// Real-Time Clock & Date in Menu Bar
+// Real-Time Digital Clock
 function initClock() {
   const clockEl = document.getElementById('menu-clock');
   if (!clockEl) return;
@@ -465,23 +466,24 @@ function initClock() {
 
     let hours = now.getHours();
     const mins = String(now.getMinutes()).padStart(2, '0');
+    const secs = String(now.getSeconds()).padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12 || 12;
 
-    clockEl.textContent = `${dayName} ${monthName} ${dateNum}  ${hours}:${mins} ${ampm}`;
+    clockEl.textContent = `${hours}:${mins}:${secs} ${ampm} // AME-16`;
 
     // Update lock screen clock if present
     const lockClock = document.getElementById('lock-screen-clock');
     const lockDate = document.getElementById('lock-screen-date');
     if (lockClock) lockClock.textContent = `${hours}:${mins} ${ampm}`;
-    if (lockDate) lockDate.textContent = `${dayName}, ${monthName} ${dateNum}`;
+    if (lockDate) lockDate.textContent = `${dayName}, ${monthName} ${dateNum} // AmeOS 16`;
   }
 
   update();
   setInterval(update, 1000);
 }
 
-// Matrix Falling Code Animation Canvas
+// Falling Matrix / Cyber Code Canvas Wallpaper
 function setupMatrixWallpaper() {
   const canvas = document.getElementById('canvas-wallpaper');
   if (!canvas) return;
@@ -495,16 +497,16 @@ function setupMatrixWallpaper() {
   resize();
   window.addEventListener('resize', resize);
 
-  const characters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテト';
+  const characters = '01AMEOS16_CYBER_MATRIX_アイウエオカキクケコサシスセソタチツテト';
   const fontSize = 14;
   let columns = Math.floor(canvas.width / fontSize);
   let drops = Array(columns).fill(1);
 
   function draw() {
-    ctx.fillStyle = 'rgba(3, 7, 18, 0.06)';
+    ctx.fillStyle = 'rgba(3, 5, 10, 0.07)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = '#00ff70';
+    ctx.fillStyle = '#00f0ff';
     ctx.font = `${fontSize}px monospace`;
 
     for (let i = 0; i < drops.length; i++) {
@@ -534,6 +536,40 @@ function setupMatrixWallpaper() {
   };
 }
 
+// Dock Proximity Magnification Scaling Physics
+function setupDockMagnification() {
+  const dock = document.getElementById('dock');
+  if (!dock) return;
+  const items = dock.querySelectorAll('.dock-item');
+
+  dock.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX;
+    const maxScale = 1.35;
+    const radius = 130;
+
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const itemCenterX = rect.left + rect.width / 2;
+      const dist = Math.abs(mouseX - itemCenterX);
+
+      if (dist < radius) {
+        const factor = Math.cos((dist / radius) * (Math.PI / 2));
+        const scale = 1 + (maxScale - 1) * factor;
+        const translateY = -10 * factor;
+        item.style.transform = `scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`;
+      } else {
+        item.style.transform = 'scale(1) translateY(0)';
+      }
+    });
+  });
+
+  dock.addEventListener('mouseleave', () => {
+    items.forEach(item => {
+      item.style.transform = '';
+    });
+  });
+}
+
 // Spotlight Global Search
 function setupSpotlightSearch() {
   const overlay = document.getElementById('spotlight-modal');
@@ -544,20 +580,23 @@ function setupSpotlightSearch() {
   if (!overlay || !input || !resultsContainer) return;
 
   const searchableItems = [
-    { title: "About Me", desc: "Hannan's bio, journey, and technical experience", app: "about" },
-    { title: "Projects Showcase", desc: "Explore 6+ web, AI, and full stack applications", app: "projects" },
-    { title: "Skills Matrix", desc: "Interactive proficiency bars and technical skills", app: "skills" },
-    { title: "Resume / CV", desc: "Professional background, credentials, and printable CV", app: "resume" },
-    { title: "Interactive Terminal", desc: "UNIX style developer command-line shell", app: "terminal" },
-    { title: "System Settings", desc: "Change desktop wallpapers, accents, and themes", app: "settings" },
-    { title: "Contact Hannan", desc: "Send an email message and find social handles", app: "contact" },
-    { title: "Lo-Fi Music Lounge", desc: "Web Audio ambient chill sound synthesizer", app: "music" },
-    { title: "Quick Notes", desc: "Sticky scratchpad with persistent local storage", app: "notes" }
+    { title: "About Hannan", desc: "Engineering journey, experience timeline, and bio", app: "about" },
+    { title: "Projects Showcase", desc: "Explore AI workflow engines, canvas tools, and web apps", app: "projects" },
+    { title: "Skills & Engineering Matrix", desc: "Proficiency bars across Frontend, Backend & DevOps", app: "skills" },
+    { title: "Resume / CV", desc: "Printable curriculum vitae and credentials", app: "resume" },
+    { title: "Cyberpunk Terminal Shell", desc: "Interactive Unix zsh command shell on AmeOS 16", app: "terminal" },
+    { title: "System Settings", desc: "Switch desktop wallpapers, accent glows, and themes", app: "settings" },
+    { title: "Mail Station", desc: "Direct message transmission dispatch form", app: "contact" },
+    { title: "Lo-Fi Lounge Synthesizer", desc: "Web Audio client ambient sound generator", app: "music" },
+    { title: "Quick Notes Scratchpad", desc: "Sticky scratchpad with persistent local storage", app: "notes" }
   ];
+
+  let selectedIndex = 0;
 
   function openSpotlight() {
     overlay.classList.add('open');
     input.value = '';
+    selectedIndex = 0;
     renderResults('');
     input.focus();
   }
@@ -572,12 +611,12 @@ function setupSpotlightSearch() {
     );
 
     if (filtered.length === 0) {
-      resultsContainer.innerHTML = `<div style="padding: 16px; text-align: center; color: var(--text-dim); font-size: 13px;">No results found for "${q}"</div>`;
+      resultsContainer.innerHTML = `<div style="padding: 18px; text-align: center; color: var(--text-muted); font-size: 13px;">No results found for "${q}"</div>`;
       return;
     }
 
-    resultsContainer.innerHTML = filtered.map(item => `
-      <div class="spotlight-item" data-app="${item.app}">
+    resultsContainer.innerHTML = filtered.map((item, idx) => `
+      <div class="spotlight-item ${idx === selectedIndex ? 'selected' : ''}" data-app="${item.app}" data-idx="${idx}">
         <div class="spotlight-item-icon">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
@@ -603,8 +642,38 @@ function setupSpotlightSearch() {
   });
 
   input.addEventListener('input', (e) => {
+    selectedIndex = 0;
     renderResults(e.target.value.toLowerCase().trim());
   });
+
+  input.addEventListener('keydown', (e) => {
+    const items = resultsContainer.querySelectorAll('.spotlight-item');
+    if (items.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedIndex = (selectedIndex + 1) % items.length;
+      updateHighlight(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+      updateHighlight(items);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      const currentItem = items[selectedIndex];
+      if (currentItem) {
+        const app = currentItem.getAttribute('data-app');
+        if (window.osWindowManager) window.osWindowManager.openApp(app);
+        closeSpotlight();
+      }
+    }
+  });
+
+  function updateHighlight(items) {
+    items.forEach((item, idx) => {
+      item.classList.toggle('selected', idx === selectedIndex);
+    });
+  }
 
   // Shortcut Cmd+K / Ctrl+K / Escape
   window.addEventListener('keydown', (e) => {
@@ -635,24 +704,24 @@ function setupControlCenter() {
     }
   });
 
-  // Dark/Light toggle
+  // Dark/Cyber toggle
   const themeCard = document.getElementById('cc-theme-toggle');
   if (themeCard) {
     themeCard.addEventListener('click', () => {
-      const isLight = document.body.classList.contains('theme-light');
-      window.osSettings.setTheme(isLight ? 'dark' : 'light');
-      themeCard.classList.toggle('active', !isLight);
+      const isCyber = document.body.classList.contains('theme-cyber');
+      window.osSettings.setTheme(isCyber ? 'dark' : 'cyber');
+      themeCard.classList.toggle('active', !isCyber);
     });
   }
 
-  // Audio mute toggle
+  // Sound toggle
   const audioCard = document.getElementById('cc-sound-toggle');
   if (audioCard) {
     audioCard.addEventListener('click', () => {
       window.soundSystem.enabled = !window.soundSystem.enabled;
       audioCard.classList.toggle('active', window.soundSystem.enabled);
       if (window.showToast) {
-        window.showToast("Sound " + (window.soundSystem.enabled ? "Enabled" : "Muted"), "UI sound effects updated.");
+        window.showToast("Sound " + (window.soundSystem.enabled ? "Active" : "Muted"), "UI audio synthesized feedback updated.");
       }
     });
   }
@@ -696,8 +765,8 @@ function setupDesktopInteractions() {
   desktop.addEventListener('contextmenu', (e) => {
     if (e.target.closest('.os-window') || e.target.closest('.dock')) return;
     e.preventDefault();
-    contextMenu.style.left = `${Math.min(e.clientX, window.innerWidth - 200)}px`;
-    contextMenu.style.top = `${Math.min(e.clientY, window.innerHeight - 250)}px`;
+    contextMenu.style.left = `${Math.min(e.clientX, window.innerWidth - 220)}px`;
+    contextMenu.style.top = `${Math.min(e.clientY, window.innerHeight - 260)}px`;
     contextMenu.classList.add('open');
   });
 
@@ -714,8 +783,8 @@ function setupDesktopInteractions() {
       if (action === 'open-projects') window.osWindowManager.openApp('projects');
       if (action === 'open-about') window.osWindowManager.openApp('about');
       if (action === 'toggle-theme') {
-        const isLight = document.body.classList.contains('theme-light');
-        window.osSettings.setTheme(isLight ? 'dark' : 'light');
+        const isCyber = document.body.classList.contains('theme-cyber');
+        window.osSettings.setTheme(isCyber ? 'dark' : 'cyber');
       }
       if (action === 'lock-screen') toggleLockScreen(true);
       contextMenu.classList.remove('open');
@@ -730,7 +799,6 @@ function setupDesktopInteractions() {
     if (e.target.closest('.os-window') || e.target.closest('.dock') || e.target.closest('.desktop-icon')) {
       return;
     }
-    // Deselect desktop icons
     document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
 
     isSelecting = true;
@@ -801,13 +869,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.osWindowManager = wm;
 
   const appConfigs = [
-    { id: 'about', title: 'About Me', minWidth: 460, minHeight: 380 },
+    { id: 'about', title: 'About Me — Hannan', minWidth: 460, minHeight: 380 },
     { id: 'projects', title: 'Projects Showcase', minWidth: 540, minHeight: 440 },
-    { id: 'skills', title: 'Skills & Tech Stack', minWidth: 500, minHeight: 400 },
-    { id: 'resume', title: 'Resume & Curriculum Vitae', minWidth: 520, minHeight: 450 },
-    { id: 'terminal', title: 'hannan@os: ~', minWidth: 520, minHeight: 360 },
-    { id: 'settings', title: 'System Settings', minWidth: 480, minHeight: 400 },
-    { id: 'contact', title: 'Mail & Contact', minWidth: 440, minHeight: 420 },
+    { id: 'skills', title: 'Skills & Engineering Matrix', minWidth: 500, minHeight: 400 },
+    { id: 'resume', title: 'Resume — Hannan', minWidth: 520, minHeight: 450 },
+    { id: 'terminal', title: 'hannan@ameos16: ~', minWidth: 520, minHeight: 360 },
+    { id: 'settings', title: 'AmeOS 16 Settings', minWidth: 480, minHeight: 400 },
+    { id: 'contact', title: 'Mail Station', minWidth: 440, minHeight: 420 },
     { id: 'music', title: 'Lo-Fi Lounge', minWidth: 360, minHeight: 380 },
     { id: 'notes', title: 'Quick Notes', minWidth: 360, minHeight: 300 }
   ];
@@ -836,14 +904,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.desktop-icon').forEach(icon => {
     const app = icon.getAttribute('data-app');
     
-    // Selection state
     icon.addEventListener('click', (e) => {
       e.stopPropagation();
       document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
       icon.classList.add('selected');
     });
 
-    // Launch on double click (or single click on touch)
     let lastTap = 0;
     icon.addEventListener('click', (e) => {
       const now = Date.now();
@@ -858,10 +924,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Dock Items
+  // 6. Dock Items with Launch Bounce
   document.querySelectorAll('.dock-item').forEach(item => {
     const app = item.getAttribute('data-app');
     item.addEventListener('click', () => {
+      // Trigger bounce animation
+      item.classList.add('dock-bouncing');
+      setTimeout(() => item.classList.remove('dock-bouncing'), 750);
+
       const win = wm.windows.get(app);
       if (win && win.isOpen && !win.isMinimized && wm.activeWindowId === app) {
         wm.minimizeApp(app);
@@ -873,13 +943,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. System UI Components
   initClock();
+  setupDockMagnification();
   setupControlCenter();
   setupSpotlightSearch();
   setupDesktopInteractions();
   setupLockScreen();
   setupMatrixWallpaper();
 
-  // Apple Logo Menu
+  // AmeOS 16 Dropdown Menu
   const appleMenuBtn = document.getElementById('apple-menu-btn');
   const appleDropdown = document.getElementById('apple-dropdown-menu');
   if (appleMenuBtn && appleDropdown) {
@@ -901,16 +972,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto-open About Me and Terminal on launch for stunning first impression!
+  // Auto-open About Me and Cyber Terminal on launch for stunning first impression!
   setTimeout(() => {
     wm.openApp('about');
-    // Position About Me nicely in upper-left
     const aboutWin = wm.windows.get('about');
     if (aboutWin) {
       aboutWin.el.style.top = '65px';
       aboutWin.el.style.left = '75px';
-      aboutWin.el.style.width = '640px';
-      aboutWin.el.style.height = '520px';
+      aboutWin.el.style.width = '670px';
+      aboutWin.el.style.height = '530px';
     }
 
     setTimeout(() => {
@@ -918,11 +988,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const termWin = wm.windows.get('terminal');
       if (termWin) {
         termWin.el.style.top = '120px';
-        termWin.el.style.left = '380px';
-        termWin.el.style.width = '620px';
-        termWin.el.style.height = '430px';
+        termWin.el.style.left = '420px';
+        termWin.el.style.width = '640px';
+        termWin.el.style.height = '440px';
       }
-      showToast("Welcome to HannanOS!", "Type 'help' in Terminal or explore desktop icons.");
-    }, 400);
+      showToast("AmeOS 16 Online", "Liquid-glass desktop system active. Type 'help' or 'sysinfo' in Cyber Terminal.");
+    }, 350);
   }, 200);
 });

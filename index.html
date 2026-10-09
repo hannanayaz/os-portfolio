@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Hannan | Senior Full Stack Engineer — HannanOS</title>
-  <meta name="description" content="Sleek, modern desktop operating system portfolio of Hannan, featuring draggable windows, interactive terminal, skills radar, and project showcase.">
-  <meta name="keywords" content="Hannan, Portfolio, OS Portfolio, Full Stack Developer, Software Engineer, Web Developer, React, Next.js, TypeScript">
-  <meta name="theme-color" content="#030712">
+  <title>Hannan | Senior Full Stack Engineer — AmeOS 16</title>
+  <meta name="description" content="AmeOS 16 futuristic liquid-glass operating system portfolio of Hannan. Featuring draggable windows, cyberpunk shell terminal, interactive skills matrix, and floating capsule dock.">
+  <meta name="keywords" content="Hannan, Portfolio, AmeOS 16, Full Stack Developer, Software Engineer, Web Developer, React, Next.js, TypeScript, Obsidian Glass">
+  <meta name="theme-color" content="#03050a">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -26,28 +26,33 @@
     </div>
 
     <!-- ====================================================================
-         Top Menu Bar (macOS / Windows 11 Hybrid)
+         Top Menu Bar — AmeOS 16 Liquid Chrome
          ==================================================================== -->
     <header class="top-bar" id="top-bar">
       <div class="top-bar-left">
-        <div class="menu-item menu-apple-logo" id="apple-menu-btn" title="HannanOS Menu">
-          <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.84.94-2.92-1 .04-2.18.66-2.83 1.43-.58.68-1.08 1.77-.95 2.82 1.12.09 2.22-.57 2.84-1.33z"/></svg>
+        <div class="menu-item menu-apple-logo" id="apple-menu-btn" title="AmeOS 16 System Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"></polygon>
+            <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+          </svg>
+          <span style="font-weight: 800; letter-spacing: -0.2px;">AmeOS 16</span>
         </div>
         <div class="menu-item app-title" id="active-app-name">Finder</div>
         <div class="menu-item" onclick="if(window.osWindowManager) window.osWindowManager.openApp('about')">About</div>
         <div class="menu-item" onclick="if(window.osWindowManager) window.osWindowManager.openApp('projects')">Projects</div>
+        <div class="menu-item" onclick="if(window.osWindowManager) window.osWindowManager.openApp('skills')">Skills</div>
         <div class="menu-item" onclick="if(window.osWindowManager) window.osWindowManager.openApp('terminal')">Terminal</div>
         <div class="menu-item" onclick="if(window.osWindowManager) window.osWindowManager.openApp('settings')">Settings</div>
       </div>
 
       <div class="top-bar-right">
         <!-- Spotlight Search Trigger -->
-        <div class="status-icon" id="menu-spotlight-btn" title="Spotlight Search (Cmd+K)">
+        <div class="status-icon" id="menu-spotlight-btn" title="Spotlight Search (Cmd+K / Ctrl+K)">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
         <!-- Lo-Fi Audio Trigger -->
-        <div class="status-icon" onclick="if(window.osWindowManager) window.osWindowManager.openApp('music')" title="Music Player">
+        <div class="status-icon" onclick="if(window.osWindowManager) window.osWindowManager.openApp('music')" title="Lo-Fi Lounge Synthesizer">
           <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
         </div>
 
@@ -56,16 +61,16 @@
           <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16V4H4v2zm0 5h16v-2H4v2zm0 5h16v-2H4v2zm0 5h16v-2H4v2z"/></svg>
         </div>
 
-        <!-- Real-Time Clock -->
-        <div class="clock-display" id="menu-clock">Wed Oct 7 9:25 PM</div>
+        <!-- Real-Time Digital Clock -->
+        <div class="clock-display" id="menu-clock">08:52 AM // AME-16</div>
       </div>
     </header>
 
-    <!-- Apple / OS Dropdown Menu -->
-    <div class="context-menu" id="apple-dropdown-menu" style="top: 36px; left: 14px;">
+    <!-- AmeOS 16 Dropdown Menu -->
+    <div class="context-menu" id="apple-dropdown-menu" style="top: 38px; left: 16px;">
       <div class="context-menu-item" data-action="about-os">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        About HannanOS
+        About AmeOS 16
       </div>
       <div class="context-menu-item" data-action="settings">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -92,73 +97,73 @@
       <!-- Desktop Icons Grid -->
       <div class="desktop-icons" id="desktop-icons">
         <!-- About Me Icon -->
-        <div class="desktop-icon" data-app="about" title="About Me (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        <div class="desktop-icon" data-app="about" title="About Hannan (Double Click)">
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(176, 38, 255, 0.35)); border-color: rgba(0, 240, 255, 0.4);">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
           </div>
           <span class="desktop-icon-label">About Me</span>
         </div>
 
         <!-- Projects Icon -->
         <div class="desktop-icon" data-app="projects" title="Projects Showcase (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #10b981, #047857);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.25), rgba(0, 240, 255, 0.35)); border-color: rgba(0, 255, 157, 0.4);">
+            <svg fill="none" stroke="#00ff9d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
           </div>
           <span class="desktop-icon-label">Projects</span>
         </div>
 
         <!-- Skills Icon -->
         <div class="desktop-icon" data-app="skills" title="Skills & Matrix (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(176, 38, 255, 0.3), rgba(255, 0, 127, 0.35)); border-color: rgba(176, 38, 255, 0.45);">
+            <svg fill="none" stroke="#b026ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
           <span class="desktop-icon-label">Skills</span>
         </div>
 
         <!-- Resume Icon -->
         <div class="desktop-icon" data-app="resume" title="Curriculum Vitae (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #f59e0b, #b45309);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.25), rgba(255, 0, 127, 0.3)); border-color: rgba(255, 183, 3, 0.45);">
+            <svg fill="none" stroke="#ffb703" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <span class="desktop-icon-label">Resume</span>
         </div>
 
         <!-- Terminal Icon -->
-        <div class="desktop-icon" data-app="terminal" title="Terminal Shell (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #38bdf8;">
-            <svg fill="none" stroke="#38bdf8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <div class="desktop-icon" data-app="terminal" title="Cyberpunk Terminal Shell (Double Click)">
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(12, 18, 34, 0.9)); border-color: #00f0ff;">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
           <span class="desktop-icon-label">Terminal</span>
         </div>
 
         <!-- Contact Icon -->
         <div class="desktop-icon" data-app="contact" title="Contact Hannan (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #ec4899, #be185d);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(255, 0, 127, 0.3), rgba(176, 38, 255, 0.35)); border-color: rgba(255, 0, 127, 0.45);">
+            <svg fill="none" stroke="#ff007f" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <span class="desktop-icon-label">Mail</span>
         </div>
 
         <!-- Settings Icon -->
-        <div class="desktop-icon" data-app="settings" title="System Settings (Double Click)">
-          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, #64748b, #334155);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div class="desktop-icon" data-app="settings" title="AmeOS 16 Settings (Double Click)">
+          <div class="desktop-icon-img-wrap" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(100, 116, 139, 0.35)); border-color: rgba(0, 240, 255, 0.35);">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
           <span class="desktop-icon-label">Settings</span>
         </div>
       </div>
 
       <!-- ==================================================================
-           Window Containers (Draggable, Minimizable, Resizable)
+           Window Containers (Floating Liquid-Glass Panes)
            ================================================================== -->
       <div class="window-container">
         <!-- 1. About Me Window -->
-        <section class="os-window" id="about" style="top: 60px; left: 80px; width: 680px; height: 530px;">
+        <section class="os-window" id="about" style="top: 60px; left: 80px; width: 690px; height: 540px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -178,12 +183,12 @@
         </section>
 
         <!-- 2. Projects Showcase Window -->
-        <section class="os-window" id="projects" style="top: 75px; left: 160px; width: 780px; height: 560px;">
+        <section class="os-window" id="projects" style="top: 75px; left: 160px; width: 800px; height: 570px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
@@ -203,12 +208,12 @@
         </section>
 
         <!-- 3. Skills Matrix Window -->
-        <section class="os-window" id="skills" style="top: 90px; left: 240px; width: 680px; height: 510px;">
+        <section class="os-window" id="skills" style="top: 90px; left: 240px; width: 700px; height: 520px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
@@ -228,12 +233,12 @@
         </section>
 
         <!-- 4. Resume Window -->
-        <section class="os-window" id="resume" style="top: 70px; left: 200px; width: 720px; height: 560px;">
+        <section class="os-window" id="resume" style="top: 70px; left: 200px; width: 740px; height: 570px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -253,16 +258,16 @@
         </section>
 
         <!-- 5. Interactive Terminal Window -->
-        <section class="os-window" id="terminal" style="top: 110px; left: 340px; width: 660px; height: 460px;">
+        <section class="os-window" id="terminal" style="top: 110px; left: 340px; width: 680px; height: 470px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
-              <svg fill="none" stroke="#38bdf8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              hannan@portfolio: ~ (zsh)
+              <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              hannan@ameos16: ~ (zsh)
             </div>
           </header>
           <div class="window-content terminal-app" id="terminal-content"></div>
@@ -277,17 +282,17 @@
           <div class="resize-handle sw" data-direction="sw"></div>
         </section>
 
-        <!-- 6. System Settings & Wallpapers Window -->
-        <section class="os-window" id="settings" style="top: 100px; left: 220px; width: 620px; height: 480px;">
+        <!-- 6. System Settings & Customization Window -->
+        <section class="os-window" id="settings" style="top: 100px; left: 220px; width: 640px; height: 490px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              Settings & Customization
+              Settings & Customization — AmeOS 16
             </div>
           </header>
           <div class="window-content" id="settings-content"></div>
@@ -303,16 +308,16 @@
         </section>
 
         <!-- 7. Mail / Contact Window -->
-        <section class="os-window" id="contact" style="top: 80px; left: 190px; width: 560px; height: 530px;">
+        <section class="os-window" id="contact" style="top: 80px; left: 190px; width: 580px; height: 540px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Mail — Hannan
+              Mail — Dispatch Station
             </div>
           </header>
           <div class="window-content" id="contact-content"></div>
@@ -328,16 +333,16 @@
         </section>
 
         <!-- 8. Lo-Fi Music Player Window -->
-        <section class="os-window" id="music" style="top: 120px; left: 260px; width: 440px; height: 440px;">
+        <section class="os-window" id="music" style="top: 120px; left: 260px; width: 450px; height: 450px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-              Lo-Fi Lounge
+              Lo-Fi Lounge Synth
             </div>
           </header>
           <div class="window-content" id="music-content"></div>
@@ -353,16 +358,16 @@
         </section>
 
         <!-- 9. Quick Notes Window -->
-        <section class="os-window" id="notes" style="top: 130px; left: 290px; width: 440px; height: 380px;">
+        <section class="os-window" id="notes" style="top: 130px; left: 290px; width: 450px; height: 390px;">
           <header class="window-titlebar">
             <div class="window-controls">
-              <button class="window-btn btn-close" title="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-              <button class="window-btn btn-minimize" title="Minimize"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-              <button class="window-btn btn-maximize" title="Maximize"><svg viewBox="0 0 24 24"><path d="M4 8l8-8 8 8M4 16l8 8 8-8"/></svg></button>
+              <button class="window-btn btn-close" title="Close" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+              <button class="window-btn btn-minimize" title="Minimize" aria-label="Minimize"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <button class="window-btn btn-maximize" title="Maximize" aria-label="Maximize"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
             </div>
             <div class="window-title">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-              Quick Notes
+              Quick Notes Scratchpad
             </div>
           </header>
           <div class="window-content" id="notes-content"></div>
@@ -386,11 +391,11 @@
         </div>
         <div class="context-menu-item" data-action="open-terminal">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          Open in Terminal
+          Open Cyber Shell
         </div>
         <div class="context-menu-item" data-action="open-projects">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-          View Projects
+          View Projects Showcase
         </div>
         <div class="context-menu-item" data-action="open-about">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -399,34 +404,34 @@
         <div class="context-menu-divider"></div>
         <div class="context-menu-item" data-action="toggle-theme">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          Toggle Theme (Dark / Light)
+          Toggle Cyber Theme
         </div>
         <div class="context-menu-item" data-action="lock-screen">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          Lock Screen
+          Lock AmeOS 16
         </div>
       </div>
     </main>
 
     <!-- ====================================================================
-         macOS / Windows Floating Dock
+         Floating Capsule Dock (Centered macOS / Futuristic Hybrid)
          ==================================================================== -->
     <div class="dock-container">
-      <nav class="dock" id="dock" aria-label="System Dock">
+      <nav class="dock" id="dock" aria-label="AmeOS 16 Floating Capsule Dock">
         <!-- Finder / About -->
         <div class="dock-item" data-app="about">
-          <div class="dock-tooltip">About Me</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <div class="dock-tooltip">About Hannan</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(176, 38, 255, 0.35)); border-color: rgba(0, 240, 255, 0.4);">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
 
         <!-- Projects -->
         <div class="dock-item" data-app="projects">
-          <div class="dock-tooltip">Projects</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #10b981, #047857);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <div class="dock-tooltip">Projects Showcase</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.25), rgba(0, 240, 255, 0.35)); border-color: rgba(0, 255, 157, 0.4);">
+            <svg fill="none" stroke="#00ff9d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
@@ -434,35 +439,35 @@
         <!-- Skills -->
         <div class="dock-item" data-app="skills">
           <div class="dock-tooltip">Skills Matrix</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(176, 38, 255, 0.3), rgba(255, 0, 127, 0.35)); border-color: rgba(176, 38, 255, 0.45);">
+            <svg fill="none" stroke="#b026ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
 
         <!-- Resume -->
         <div class="dock-item" data-app="resume">
-          <div class="dock-tooltip">Resume</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #f59e0b, #b45309);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <div class="dock-tooltip">Resume / CV</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(255, 183, 3, 0.25), rgba(255, 0, 127, 0.3)); border-color: rgba(255, 183, 3, 0.45);">
+            <svg fill="none" stroke="#ffb703" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
 
         <!-- Terminal -->
         <div class="dock-item" data-app="terminal">
-          <div class="dock-tooltip">Terminal</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #38bdf8;">
-            <svg fill="none" stroke="#38bdf8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <div class="dock-tooltip">Cyber Shell</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(12, 18, 34, 0.9)); border-color: #00f0ff;">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
 
         <!-- Notes -->
         <div class="dock-item" data-app="notes">
-          <div class="dock-tooltip">Notes</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #eab308, #ca8a04);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          <div class="dock-tooltip">Quick Notes</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.25), rgba(202, 138, 4, 0.35)); border-color: rgba(250, 204, 21, 0.45);">
+            <svg fill="none" stroke="#facc15" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
@@ -470,8 +475,8 @@
         <!-- Music -->
         <div class="dock-item" data-app="music">
           <div class="dock-tooltip">Lo-Fi Lounge</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #a855f7, #6366f1);">
-            <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22" style="color: #fff;"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(99, 102, 241, 0.35)); border-color: rgba(168, 85, 247, 0.45);">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="22" height="22" style="color: #c084fc;"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
@@ -480,18 +485,18 @@
 
         <!-- Settings -->
         <div class="dock-item" data-app="settings">
-          <div class="dock-tooltip">Settings</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #64748b, #334155);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div class="dock-tooltip">System Settings</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(100, 116, 139, 0.35)); border-color: rgba(0, 240, 255, 0.35);">
+            <svg fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
 
         <!-- Contact -->
         <div class="dock-item" data-app="contact">
-          <div class="dock-tooltip">Mail Hannan</div>
-          <div class="dock-item-icon" style="background: linear-gradient(135deg, #ec4899, #be185d);">
-            <svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <div class="dock-tooltip">Mail Station</div>
+          <div class="dock-item-icon" style="background: linear-gradient(135deg, rgba(255, 0, 127, 0.3), rgba(176, 38, 255, 0.35)); border-color: rgba(255, 0, 127, 0.45);">
+            <svg fill="none" stroke="#ff007f" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <div class="dock-dot"></div>
         </div>
@@ -508,8 +513,8 @@
             <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
           </div>
           <div class="cc-card-info">
-            <span>Dark Mode</span>
-            <span class="cc-card-subtitle">Appearance</span>
+            <span>Cyber / Dark</span>
+            <span class="cc-card-subtitle">Aesthetic Mode</span>
           </div>
         </div>
 
@@ -519,7 +524,7 @@
           </div>
           <div class="cc-card-info">
             <span>UI Audio</span>
-            <span class="cc-card-subtitle">Active</span>
+            <span class="cc-card-subtitle">Active Synths</span>
           </div>
         </div>
       </div>
@@ -541,7 +546,7 @@
           </div>
           <div class="cc-card-info">
             <span>Wallpapers</span>
-            <span class="cc-card-subtitle">Customize</span>
+            <span class="cc-card-subtitle">AmeOS Themes</span>
           </div>
         </div>
       </div>
@@ -556,10 +561,10 @@
 
       <div class="cc-slider-card">
         <div class="cc-slider-label">
-          <span>Glassmorphism Blur</span>
+          <span>Liquid Glass Blur</span>
           <span>px</span>
         </div>
-        <input type="range" id="cc-blur-slider" class="cc-slider" min="8" max="40" value="24">
+        <input type="range" id="cc-blur-slider" class="cc-slider" min="12" max="48" value="32">
       </div>
     </aside>
 
@@ -570,7 +575,7 @@
       <div class="spotlight-card">
         <div class="spotlight-input-row">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <input type="text" id="spotlight-input" class="spotlight-input" placeholder="Search HannanOS apps, skills, projects, commands..." />
+          <input type="text" id="spotlight-input" class="spotlight-input" placeholder="Search AmeOS 16 apps, skills, projects, commands..." />
         </div>
         <div class="spotlight-results" id="spotlight-results"></div>
       </div>
@@ -580,13 +585,13 @@
          Lock Screen Overlay
          ==================================================================== -->
     <div class="lock-screen" id="lock-screen">
-      <div class="lock-clock" id="lock-screen-clock">9:25 PM</div>
-      <div class="lock-date" id="lock-screen-date">Wednesday, October 7</div>
+      <div class="lock-clock" id="lock-screen-clock">08:52 AM</div>
+      <div class="lock-date" id="lock-screen-date">AmeOS 16 // Security Active</div>
       <div class="lock-avatar-wrap">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Hannan" />
       </div>
-      <div style="font-size: 18px; font-weight: 700;">Hannan</div>
-      <button class="lock-btn" id="lock-screen-unlock-btn">Unlock HannanOS</button>
+      <div style="font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.2px;">Hannan</div>
+      <button class="lock-btn" id="lock-screen-unlock-btn">Unlock AmeOS 16</button>
     </div>
 
     <!-- Toast Shelf Notifications -->
